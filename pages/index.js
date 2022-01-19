@@ -1,9 +1,7 @@
 import Head from "next/head";
 import Login from "./login";
-import useWindowSize from "/hooks/resize";
 
 export default function Home() {
-  const size = useWindowSize();
   return (
     <div>
       <Head>
@@ -14,7 +12,7 @@ export default function Home() {
       </Head>
 
       <main>
-        <Login size={size}/>
+        {/* <Login /> */}
       </main>
 
       <style global jsx>{`
@@ -28,34 +26,11 @@ export default function Home() {
           background-position: center;
         }
 
-        .container {
-          margin-top: ${size.width > 768 ? 0 : 30}%;
-          display: flex;
-          flex-direction: column;
-        }
-        
-        .mainTitle {
-            text-align: center;
-            margin: 0
-          }
-          .twoColumns {
-            flex-direction: row,
-            justify-content: space-around,
-            align-items: center;
+        .layout {
+            display: flex;
+            flex-direction: row;
           }
 
-          a{
-            text-decoration: none;
-            color: #096dd9;
-          }
-
-          .asideView {
-            border-radius: ${ size.width < 768 ? '30px 30px 0 0' : 0};
-            padding: 15px;
-            min-height: ${size.width > 767 ? 100 : 77}vh;
-            background-color: #fff;
-            width: ${size.width > 768 ? '50vh' : '100%'};
-          }
       `}</style>
     </div>
   );
